@@ -1,0 +1,55 @@
+#####
+# Get Python
+#####
+# decide what version you need from: https://www.python.org/downloads/source/
+# after clicking on the version link, download as source code (Gzipped source tarball)
+#   for 2.7.13: https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz
+#   for 3.6.1: https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+# the following will show steps for 2.7.13
+# unarchive/decompress the tarball
+    tar zxvf Python-2.7.13.tgz
+#go into the Python-2.7.13/ directory
+    cd Python-2.7.13/
+
+#####
+# Install Python
+#####
+# configure & install with specified directory for installation
+    ./configure --prefix=YOURPYTHONPATH #where YOURPYTHONPATH is the directory where you want the python bin, lib, etc to exist
+    make
+    make install
+
+#####
+# Create environment script
+#####
+# Create an environment script (I make a $HOME/python-2.7.13_env) to direct your PYTHONPATH & PATH (or include in your .bashrc or .bash_profile)
+    export PATH="./:YOURPYTHONPATH/bin/:${PATH}" #for your system's executables
+    export PYTHONPATH="./:YOURPYTHONPATH"
+#source your new script so that you can make use of the python version you just installed
+    source $HOME/python-2.7.13_env
+#make sure you have pip. You should see pip among the executables, if not, we'll address that next.
+    ll PYTHONPATH/bin/
+#if no pip there, get it, but first you'll need setuptools
+    PYTHONPATH/bin/python -m ensurepip
+#then get the pip tarball from: https://pypi.python.org/pypi/pip/
+#decompress/unarchive with (assuming for python 2.7, and latest (at this time) pip)
+    tar zxvf pip-9.0.1.tar.gz
+#go into the new pip directory
+    cd pip-9.0.1/
+#install with 
+    python setup.py install --prefix=YOURPYTHONPATH
+    python setup.py install --prefix PYTHONPATH
+#now you can install with this new pip when using the appropriate environment variables
+    
+#####
+# Install what you want
+#####
+# now that you've installed python, sourced the environment, installed setuptools & pip, you can install what you want like this
+    pip install X --prefix=YOURPYTHONPATH #where X is . for a local project with a setup.py or something pacakage from PyPI
+    
+#####
+# Install to $HOME/.local
+#####
+# you have the option to install packages with the --user flag. This will install packages to $HOME/.local/.
+    pip install X --user
+# to make use of these new installs, you'll need to add $HOME/.local/bin to PATH & $HOME/.local/ to your PTYHONPATH environment variables
