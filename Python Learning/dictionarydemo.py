@@ -29,13 +29,13 @@ labels = {
 
 o = raw_input('looking for:')
 
-#really dirty code
+#real dirty code
 if o.title() in phonebook: print "%s's %s is %s,%s is %s" % \
 	(o,labels['phone'],phonebook[o.title()]['phone'],\
 	labels['addr'],phonebook[o.title()]['addr'])
 
 #take use of formating to output
-print 'test conversion specifier "%" on dictionary :'
+print 'test conversion specifier %% on dictionary :'
 #template 1: use dirctionary as % format spicifier
 template1 = "Template1: The required phone number is %(phone)s, address is %(addr)s"
 print template1 % phonebook[o.title()]
