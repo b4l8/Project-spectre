@@ -143,3 +143,28 @@ def flatten2(nested):
 print list(flatten2([[[1],2],3,4,[5,[6,7]],8]))
 print list(flatten2(['foo',['bar',['1234']]]))
 
+# Generator = Generator function + Generator Iterator
+# generator function = def xxxxxxx with yield
+# generator function returns an iterator
+
+
+# demo : Generator method -> send (there is other method : -> throw -> close)
+
+def repeator(value):
+    while True:
+        new = (yield (value+1))
+        if new is not None: value = new
+
+r = repeator(42)
+print r.next() # Attention : send can only be used after the 1st yield. when the generator at the suspended condition
+# reinput value : send value to generator
+r.send(10)
+print r.next()
+print r.next()
+print r.next()
+print r.next()
+print r.next()
+
+
+
+
