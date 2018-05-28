@@ -1,0 +1,12 @@
+To make the program more extendable. We need to make it more modulized.
+
+Module:
+
+gramma analyser:  read text, manage other texts
+
+rules: define rules for every type of blocks. detect each type of block and apply rule on it.
+
+filtre: need to deal with some inline element
+
+handler: gramma analyser can use handler to output . each handler can create different types of tag.
+

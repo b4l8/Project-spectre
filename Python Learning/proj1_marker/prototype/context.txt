@@ -1,0 +1,31 @@
+Let's talk about one situation
+
+you got a file from sb who don't want to write HTML
+
+you need to add tag to the text, making it work on web
+
+write a program to do it. 
+
+
+INPUT:
+    plain text :No code or tag
+    
+Process:
+    different block: 
+        title
+        paragraph
+        list
+        inline text
+
+Extendable:
+    programed for HTML, but can be extended on other language
+    
+TOOL:
+    file rw
+    iterate the input lines
+    some string method
+    some generator
+    re module
+    
+    
+TEST FILE:
